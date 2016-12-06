@@ -16,11 +16,14 @@ verbs = [word for word, pos in tagged_sent if pos =='VBZ']
 words = []
 
 for verb in verbs :
-  d = enchant.Dict("en_US")
-  if d.check(verb) == True:
-    words.append(verb)
-  if d.check(verb) == False:
-    words.append(d.suggest(verb)[0])  #appending the first suggestion from suggested array
+   
+   d = enchant.Dict("en_US")
+
+   if d.check(verb) == True:
+      words.append(verb)
+   
+   if d.check(verb) == False:
+      words.append(d.suggest(verb)[0])  #appending the first suggestion from suggested array
 
 print words
 
@@ -35,12 +38,16 @@ propernouns = [word for word, pos in tagged_sent if pos =='NNP']
 nouns = [word for word, pos in tagged_sent if pos =='NN']
 propernoun_summary = []
 noun_summary = []
+
 for propernoun in propernouns:
-  search = wikipedia.search(propernoun)
-  propernoun_summary.append(wikipedia.summary(search[0],sentences=1))
-  
+   search = wikipedia.search(propernoun)
+   propernoun_summary.append(wikipedia.summary(search[0],sentences=1))
+
+
 for noun in noun:
-  search = wikipedia.search(propernoun)
-  noun_summary.append(wikipedia.summary(search[0],sentences=1))
+   search = wikipedia.search(propernoun)
+   noun_summary.append(wikipedia.summary(search[0],sentences=1))
+
 print noun_summary
+print pronoun_summary
 
