@@ -4,7 +4,7 @@
    using nltk to check the tags (i.e noun, propernoun, verbs etc ) of the words present in the sentence we have detected
 '''
 import wikipedia
-from nltk.tag impor pos_tag
+from nltk.tag import pos_tag
 import enchant
 import string
 
@@ -43,4 +43,4 @@ for noun in noun:
   search = wikipedia.search(propernoun)
   noun_summary.append(wikipedia.summary(search[0],sentences=1))
 print noun_summary
-print summary
+
